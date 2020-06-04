@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+        <h1>Create a Tweet</h1>
+
+        <p>Please fill out the form and submit to create a new Tweet!</p>
+
+        <form action="/tweet/created" method="POST">
+
+            <label>Tweet:</label>
+            <input type="text" name="Tweet" placeholder="Speak Your Mind" value="Speak Your Mind">
+
+            <label>Subjects:</label>
+            <select name="Category">
+                <option value="C1">Technology</option>
+                <option value="C2">World News</option>
+                <option value="C3">Entertainment</option>
+            </select>
+
+            <button>Submit</button>
+        </form>
+</body>
+</html>
