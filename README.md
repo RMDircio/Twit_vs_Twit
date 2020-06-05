@@ -18,9 +18,9 @@ Create a pipenv virtual environment:
 `pipenv shell` - Starts the virtual environment
 
 - Migrate the Database
-  `FLASK_APP=web_app flask db init`
-  `FLASK_APP=web_app flask db migrate`
-  `FLASK_APP=web_app flask db upgrade`
+  `FLASK_APP=twit_app flask db init`
+  `FLASK_APP=twit_app flask db migrate`
+  `FLASK_APP=twit_app flask db upgrade`
 
 # Usage
 

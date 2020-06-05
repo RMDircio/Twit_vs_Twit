@@ -45,5 +45,5 @@ if __name__ == "__main__":
 
     # for loop tweets
     for tweet in tweets:
-    print('-------')
-    print(tweet.id, tweet.full_text)
+        print('-------')
+        print(tweet.id, tweet.full_text)
