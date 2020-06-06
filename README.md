@@ -26,7 +26,7 @@ Create a pipenv virtual environment:
 
 Run a Flask app:
 - Mac:
-    `FLASK_APP=web_app flask run`
+    `FLASK_APP=twit_app flask run`
 
 - Windows:
     `export FLASK_APP=web_app` # one-time thing, to set the environment

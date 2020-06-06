@@ -25,7 +25,7 @@ def new_tweet():
 @tweet_routes.route("/tweet/created", methods=["POST"])
 def created_tweet():
     print("FORM DATA:", dict(request.form))
-    new_tweet = Tweet(tweet=request.form["tweet"], subject_id=request.form["subject_category"])
+    new_tweet = Tweet(tweet=request.form["Tweet"], user_id=request.form["user_name"])
     db.session.add(new_tweet)
     db.session.commit()
     return jsonify({
