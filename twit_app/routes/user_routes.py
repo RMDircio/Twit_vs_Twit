@@ -1,11 +1,11 @@
 
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 user_routes = Blueprint('user_routes', __name__)
 
 @user_routes.route('/')
 def index():
-    return 'Welcome User'
+    return render_template('prediction_form.html')
 
 @user_routes.route('/aboutus')
 def about():
