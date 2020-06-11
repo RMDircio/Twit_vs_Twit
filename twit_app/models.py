@@ -1,4 +1,5 @@
 # web_app/models.py
+# creates/get the database
 
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -8,14 +9,16 @@ db = SQLAlchemy()
 migrate = Migrate()
 
 class User(db.Model):
+    '''Twitter users that are queried'''
     id = db.Column(db.BigInteger, primary_key=True)
-    screen_name = db.Column(db.String(128), nullable=False)
+    screen_name = db.Column(db.String(128), unique=True, nullable=False)
     name = db.Column(db.String)
     location = db.Column(db.String)
     followers_count = db.Column(db.Integer)
     #latest_tweet_id = db.Column(db.BigInteger)
 
 class Tweet(db.Model):
+    '''Stores Tweets'''
     id = db.Column(db.BigInteger, primary_key=True)
     user_id = db.Column(db.BigInteger, db.ForeignKey("user.id"))
     full_text = db.Column(db.String(500))
