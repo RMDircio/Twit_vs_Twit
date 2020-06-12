@@ -1,5 +1,5 @@
 
-from flask import Blueprint, jsonify, request, render_template #, flash, redirect
+from flask import Blueprint, jsonify, request, render_template, flash, redirect
 from twit_app.models import db, Tweet, parse_records
 
 tweet_routes = Blueprint("tweet_routes", __name__)
@@ -28,9 +28,9 @@ def created_tweet():
     new_tweet = Tweet(tweet=request.form["Tweet"], user_id=request.form["user_name"])
     db.session.add(new_tweet)
     db.session.commit()
-    return jsonify({
-    "message": "Tweet was created",
-    "tweet": dict(request.form)
-    })
-    #flash(f"Book '{new_book.title}' created successfully!", "success")
-    #return redirect(f"/books")
+    # return jsonify({
+    # "message": "Tweet was created",
+    # "tweet": dict(request.form)
+    # })
+    flash(f"Book '{new_book.title}' created successfully!", "success")
+    return redirect(f"/books")

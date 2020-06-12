@@ -11,9 +11,12 @@ DATABASE_URI = "sqlite:///twit_vs_twit_development.db" # using relative filepath
 #DATABASE_URI = "sqlite:////Users/Username/Desktop/your-repo-name/web_app_99.db" # using absolute filepath on Mac (recommended)
 #DATABASE_URI = "sqlite:///C:\\Users\\Username\\Desktop\\your-repo-name\\web_app_99.db" # using absolute filepath on Windows (recommended) h/t: https://stackoverflow.com/a/19262231/670433
 
+SECRET_KEY = " temp value"
 
 def create_app():
     app = Flask(__name__, template_folder='twit_templates')
+
+    app.config["SECRET_KEY"] = SECRET_KEY
 
     app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URI
     db.init_app(app)
