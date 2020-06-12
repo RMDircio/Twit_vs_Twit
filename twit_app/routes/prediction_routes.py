@@ -30,35 +30,35 @@ def predict():
     print("USER A", user_a.screen_name, len(user_a.tweets))
     print("USER B", user_b.screen_name, len(user_b.tweets))
 
-    # print("-----------------")
-    # print("TRAINING THE MODEL...")
-    # embeddings = []
-    # labels = []
-    # for tweet in user_a_tweets:
-    #     labels.append(user_a.screen_name)
-    #     embeddings.append(tweet.embedding)
+    print("-----------------")
+    print("TRAINING THE MODEL...")
+    embeddings = []
+    labels = []
+    for tweet in user_a_tweets:
+        labels.append(user_a.screen_name)
+        embeddings.append(tweet.embedding)
 
-    # for tweet in user_b_tweets:
-    #     labels.append(user_b.screen_name)
-    #     embeddings.append(tweet.embedding)
+    for tweet in user_b_tweets:
+        labels.append(user_b.screen_name)
+        embeddings.append(tweet.embedding)
 
-    # classifier = LogisticRegression() # for example
-    # classifier.fit(embeddings, labels)
+    classifier = LogisticRegression() # for example
+    classifier.fit(embeddings, labels)
 
-    # print("-----------------")
-    # print("MAKING A PREDICTION...")
-    # #result_a = classifier.predict([user_a_tweets[0].embedding])
-    # #result_b = classifier.predict([user_b_tweets[0].embedding])
+    print("-----------------")
+    print("MAKING A PREDICTION...")
+    #result_a = classifier.predict([user_a_tweets[0].embedding])
+    #result_b = classifier.predict([user_b_tweets[0].embedding])
 
     # basilica_api = basilica_api_client()
-    # example_embedding = basilica_api.embed_sentence(tweet_text)
-    # result = classifier.predict([example_embedding])
-    # #breakpoint()
+    # make sure that basilica model is set to 'twitter'
+    example_embedding = basilica_api_client.embed_sentence(tweet_text, model='twitter')
+    result = classifier.predict([example_embedding])
 
     #return jsonify({"message": "RESULTS", "most_likely": result[0]})
     return render_template("prediction_results.html",
         screen_name_a=screen_name_a,
         screen_name_b=screen_name_b,
         tweet_text=tweet_text,
-        screen_name_most_likely= 'TODO' #result[0]
+        screen_name_most_likely= result[0]
     )
